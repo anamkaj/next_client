@@ -1,0 +1,24 @@
+import { addCartStore } from '@/models/store'
+import { useAppSelector } from '@/store/Redux/storeHook'
+import { useEffect, useState } from 'react'
+
+type PriceProp = {
+  data: addCartStore[]
+}
+
+export const useCalcPriceProduct = ({ data }: PriceProp) => {
+  const totalCart = useAppSelector((state) => state.cartReducer.total)
+  const [totalCartPrice, setTotalCartPrice] = useState<number>(0)
+  const [totalSale, setTotalSale] = useState<number>(0)
+
+  useEffect(() => {
+    setTotalCartPrice(totalCart)
+    const totalSale = data.reduce((prev: number, curr: addCartStore) => {
+      return (curr.price / curr.sale) * curr.totalCount
+    }, 0)
+
+    setTotalSale(totalSale)
+  }, [totalCart])
+
+  return { totalCartPrice, totalSale }
+}
