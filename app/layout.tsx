@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Интернет магазин видеонаблюдения г.Краснодар',
+  title: 'Интернет магазин видеонаблюдения город Краснодар',
   description:
     'В нашем магазине вы можете выбрать из более чем 10000 камер и видеорегистраторов для видеонаблюдения.',
 }
