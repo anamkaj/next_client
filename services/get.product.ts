@@ -19,7 +19,7 @@ export const ProductServices = {
       };
 
       const data = await fetch(
-        `http://localhost:5000/api/all/?id=${id}&skip=${paramsReq.skip}&take=${paramsReq.take}`
+        `https://tmk-v.ru:8080/api/all/?id=${id}&skip=${paramsReq.skip}&take=${paramsReq.take}`
       );
       return data.json();
     } catch (error) {
@@ -46,7 +46,7 @@ export const ProductServices = {
       };
 
       const data = await fetch(
-        `http://localhost:5000/api/all/${paramsReq.filter}/?id=${id}&skip=${paramsReq.skip}&take=${paramsReq.take}`
+        `https://tmk-v.ru:8080/api/all/${paramsReq.filter}/?id=${id}&skip=${paramsReq.skip}&take=${paramsReq.take}`
       );
       return data.json();
     } catch (error) {
