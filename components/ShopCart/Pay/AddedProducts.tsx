@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { addCartStore } from '../../../../helpers/Model/Store/Redux/type.product'
 import { CounterProduct } from '../CounterCart/CounterProduct'
 import { ProductSum } from '../CounterCart/ProductSum'
 import { OrderAmount } from './OrderAmount'
 import { TotalPrice } from './TotalPrice'
 import { useCalcPriceProduct } from './hook/calc.prise.cart'
+import { addCartStore } from '@/models/store'
 
 type TotalCartProp = {
   data: addCartStore[]
