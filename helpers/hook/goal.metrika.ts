@@ -1,6 +1,5 @@
 import { Person } from '@/models/form'
 import { UseFormReset } from 'react-hook-form'
-import ym from 'react-yandex-metrika'
 
 type PropGoalMetrika = {
   isValid: boolean
@@ -14,11 +13,10 @@ export const useGoalYandexMetrika = ({ isValid, reset }: PropGoalMetrika) => {
     }, 2000)
   }
 
-  const sendGoal = (id: string) => {
-    if (isValid) {
-      ym('reachGoal', id)
-      resetForm()
-    }
-  }
-  return { sendGoal }
+  // const sendGoal = (id: string) => {
+  //   if (isValid) {
+  //     ym('reachGoal', id)
+  //     resetForm()
+  //   }
+  // }
 }
