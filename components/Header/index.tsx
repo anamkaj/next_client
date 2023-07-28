@@ -12,6 +12,7 @@ import {
   requestConsultationBtn,
   requestInstallationBtn,
 } from '@/store/Jotai/modal'
+import Metrika from '@/provider/Yandex/Metrika'
 
 export default function Header() {
   // Монтаж и Установка - кнопка
@@ -25,7 +26,7 @@ export default function Header() {
   const titlePopup = 'Монтаж и Установка'
   const titlePopup2 = 'Заказать обратный звонок'
   return (
-    <div>
+    <Metrika>
       <div className='container mx-auto p-2 bg-white'>
         <div className=' flex flex-col justify-around gap-4 items-center lg:flex-row  '>
           <div>
@@ -41,9 +42,9 @@ export default function Header() {
           </div>
           <Contact />
         </div>
-        <>
+        <div>
           <SubHeader />
-        </>
+        </div>
       </div>
 
       <div className=' flex items-center justify-center'>
@@ -66,6 +67,6 @@ export default function Header() {
           </Model>
         </div>
       </div>
-    </div>
+    </Metrika>
   )
 }
