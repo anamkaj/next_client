@@ -6,10 +6,10 @@ export default function BannerMain() {
   return (
     <>
       {/* <div className=' hidden xl:w-[310px] xl:block'></div> */}
-      <div className='  w-full rounded-lg '>
+      <div className=' rounded-lg '>
         <Image
-          height={500}
-          width={700}
+          height={768}
+          width={1366}
           src={imgBanner}
           className='h-full w-full '
           alt='Монтаж видеонаблюдения в Краснодаре'
