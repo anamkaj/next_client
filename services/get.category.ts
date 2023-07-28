@@ -3,16 +3,15 @@
 export const CategoryServices = {
   async getAllCategory(id: string) {
     const data = await fetch(
-      `https://tmk-v.ru:8080/api/category/all-category?id=${id}`
-    );
+      `https://tmk-v.ru:8080/api/category/all-category?id=${id}`,
+    )
+    console.log(data)
 
-    return data.json();
+    return data.json()
   },
 
   async getMainCategory() {
-    const data = await fetch(
-      "https://tmk-v.ru:8080/api/category/null-category"
-    );
-    return data.json();
+    const data = await fetch('https://tmk-v.ru:8080/api/category/null-category')
+    return data.json()
   },
-};
+}

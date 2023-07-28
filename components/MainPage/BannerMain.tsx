@@ -8,7 +8,7 @@ export default function BannerMain() {
       {/* <div className=' hidden xl:w-[310px] xl:block'></div> */}
       <div className='  w-full rounded-lg '>
         <Image
-          height={800}
+          height={500}
           width={700}
           src={imgBanner}
           className='h-full w-full '
