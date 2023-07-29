@@ -1,10 +1,9 @@
 'use client'
 import { ICategory } from '@/models/category'
 import { IProduct } from '@/models/product'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ProductSearchList from './ProductSearchList'
 import CategoryList from './CategoryList'
-
 
 type ScrollProp = {
   product: IProduct[] | undefined
@@ -37,14 +36,17 @@ export default function ScrollList({
             </h4>
           </div>
         )}
-        {product?.length !== 0 && (
+        {product && active && (
           <div>
             <ProductSearchList
               product={product}
               category={category}
               closeSearch={closeSearch}
             />
-            <span className=' font-extralight text-xs'> Группы товаров </span>
+            {product.length !== 0 && (
+              <span className=' font-extralight text-xs'> Группы товаров </span>
+            )}
+
             <CategoryList category={category} closeSearch={closeSearch} />
           </div>
         )}

@@ -47,7 +47,6 @@ export default function SingleProduct({ product }: ISingleProduct) {
 
   useEffect(() => {
     countViewIncrement(product[0].id)
-    console.log('yas')
   }, [])
 
   return (

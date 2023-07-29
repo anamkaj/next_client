@@ -9,6 +9,7 @@ export default function Metrika({ children }: { children: ReactNode }) {
         clickmap: true,
         trackLinks: true,
         accurateTrackBounce: true,
+        webvisor:true
       }}
     >
       <main>{children}</main>

@@ -13,7 +13,7 @@ export default function CategoryList({
 }) {
   return (
     <>
-      {category?.length !== 0 ? (
+      {category?.length !== 0 && (
         <div className='  flex flex-wrap gap-2 mb-4 bg-white bg-clip-border shadow-3xl shadow-shadow-500'>
           {category?.map((x) => {
             if (x.parentCategoryId !== null)
@@ -39,12 +39,6 @@ export default function CategoryList({
                 </Link>
               )
           })}
-        </div>
-      ) : (
-        <div className=' flex items-center justify-center'>
-          <p className=' font-medium text-xl'>
-            Подходящей категории не найдено{' '}
-          </p>
         </div>
       )}
     </>
