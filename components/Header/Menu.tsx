@@ -13,7 +13,7 @@ export default function Menu() {
   )
   return (
     <>
-      <div className='flex  gap-2 text-white uppercase py-2 lg:flex-row   '>
+      <div className=' flex uppercase py-2 lg:flex-row justify-between items-center'>
         {/* {menuList.map((_, index) => (
         <button
           id={menuList[index].title}
@@ -25,13 +25,13 @@ export default function Menu() {
       ))} */}
         <button
           onClick={() => setInstallation(true)}
-          className='  bg-gray-500 text-white p-2 rounded-lg text-xs uppercase font-thin lg:text-sm lg:font-semibold xl:whitespace-nowrap tracking-tight overflow-visible shadow-lg hover:bg-gray-600 transition duration-200 each-in-out'
+          className=' w-full whitespace-nowrap py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 shadow '
         >
           Монтаж и Установка
         </button>
         <button
           onClick={() => setRequestConsultation(true)}
-          className='  bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 focus:outline-none text-white text-xs uppercase font-thin shadow-md rounded-lg  p-2 lg:text-sm lg:font-semibold xl:whitespace-nowrap'
+          className=' w-full whitespace-nowrap py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 shadow'
         >
           Заказать обратный звонок
         </button>

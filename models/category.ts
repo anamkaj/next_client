@@ -1,4 +1,5 @@
 export interface ICategory {
+    imgFolder: any;
     id: number;
     name: string;
     parentCategoryId: number;

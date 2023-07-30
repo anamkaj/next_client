@@ -9,6 +9,8 @@ import HeaderFilterProduct from '@/components/Product/HeaderFilterProduct'
 import { ProductServices } from '@/services/get.product'
 import { CategoryServices } from '@/services/get.category'
 import { IProduct } from '@/models/product'
+import CategoryDownLevel from '@/components/Category/CategoryDownLevel'
+import SubCategory from '@/components/Category/SubCategory'
 
 type PropCategoryUpLevel = {
   params: { slug: string }
@@ -33,10 +35,9 @@ export default async function CategoryUpLevel({
 
   console.log(pageFilter)
 
-
   return (
     <div className='container mx-auto py-10'>
-      {/* <Category category={category} /> */}
+      <SubCategory category={category} id={Number(slug[1])} />
       <Description category={category} slug={slug[1]} />
       <BreadCrumbs category={category} slug={slug} />
       <HeaderFilterProduct pageFilter={pageFilter[0]} pageNumber={pageNumber} />

@@ -20,7 +20,7 @@
     "framer-motion": "^10.12.18",
     "fslightbox-react": "^1.7.6",
     "jotai": "^2.2.2",
-    "next": "13.4.10",
+    "next": "13.4.12",
     "next-yandex-metrica": "^1.0.0",
     "nuka-carousel": "^6.0.3",
     "postcss": "8.4.25",
