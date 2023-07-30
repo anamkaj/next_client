@@ -21,12 +21,12 @@ export default async function CategoryUpLevel({
 }: PropCategoryUpLevel) {
   const { slug } = params
   const pageNumber = searchParams.page
-  const pageFilter = searchParams.filter
+  const pageFilter = searchParams.filter.split('?')
   const category: ICategory[] = await CategoryServices.getAllCategory(slug[1])
   const product: IProduct[] = await ProductServices.getProductFilterHead(
     slug[1],
     pageNumber,
-    pageFilter,
+    pageFilter[0],
   )
 
   return (
@@ -34,7 +34,7 @@ export default async function CategoryUpLevel({
       {/* <Category category={category} /> */}
       <Description category={category} slug={slug[1]} />
       <BreadCrumbs category={category} slug={slug} />
-      <HeaderFilterProduct pageFilter={pageFilter} pageNumber={pageNumber} />
+      <HeaderFilterProduct pageFilter={pageFilter[0]} pageNumber={pageNumber} />
       <div className='grid grid-cols-2 gap-1 lg:gap-2 md:grid-cols-3 xl:grid-cols-4 mt-4'>
         {product.map((cart) => {
           return (
