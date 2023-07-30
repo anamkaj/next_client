@@ -21,13 +21,16 @@ export default async function CategoryUpLevel({
 }: PropCategoryUpLevel) {
   const { slug } = params
   const pageNumber = searchParams.page
-  const pageFilter = searchParams.filter.split('?')
+  const pageFilter = searchParams.filter
+    ? searchParams.filter.split('?')
+    : ['popularity_desc']
   const category: ICategory[] = await CategoryServices.getAllCategory(slug[1])
   const product: IProduct[] = await ProductServices.getProductFilterHead(
     slug[1],
     pageNumber,
     pageFilter[0],
   )
+  console.log(pageFilter)
 
   return (
     <div className='container mx-auto py-10'>
