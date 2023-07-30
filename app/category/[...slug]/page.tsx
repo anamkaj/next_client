@@ -30,7 +30,9 @@ export default async function CategoryUpLevel({
     pageNumber,
     pageFilter[0],
   )
+
   console.log(pageFilter)
+
 
   return (
     <div className='container mx-auto py-10'>
