@@ -24,7 +24,7 @@ export default function CartHeader({ product }: { product: IProduct[] }) {
       <div>
         <img
           className=" w-16 "
-          src={`https://tmk-v.ru:8080/img/brend/${product[0].brendImg}`}
+          src={`http://tmk-v.ru:8080/img/brend/${product[0].brendImg}`}
           alt=""
         />
       </div>

@@ -5,7 +5,7 @@ export const FormServices = {
   async postFormFeedback(params: FormReq) {
     try {
       const { data, status } = await axios.post(
-        `https://tmk-v.ru:8080/api/form/order`,
+        `http://tmk-v.ru:8080/api/form/order`,
         {
           data: params,
         },
@@ -20,7 +20,7 @@ export const FormServices = {
   async postFormOneProduct(params: IFormOneProductPost) {
     try {
       const { data, status } = await axios.post(
-        `https://tmk-v.ru:8080/api/form/order/oneProduct`,
+        `http://tmk-v.ru:8080/api/form/order/oneProduct`,
         {
           data: params,
         },
@@ -35,7 +35,7 @@ export const FormServices = {
   async postFormCartPage(params: IFormReq) {
     try {
       const { data, status } = await axios.post(
-        `https://tmk-v.ru:8080/api/form/order/cart`,
+        `http://tmk-v.ru:8080/api/form/order/cart`,
         {
           data: params,
         },
@@ -49,7 +49,7 @@ export const FormServices = {
 
   // async postFormSpecialist(params: FormSpecialist) {
   //   const { data, status } = await axios.post(
-  //     `https://tmk-v.ru:8080/api/form/order`,
+  //     `http://tmk-v.ru:8080/api/form/order`,
   //     {
   //       data: params,
   //     },

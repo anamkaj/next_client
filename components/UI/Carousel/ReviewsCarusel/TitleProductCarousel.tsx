@@ -19,7 +19,7 @@ export default function TitleProductCarousel({ id }: { id: number }) {
           >
             <div className=" w-[80px]">
               <img
-                src={`https://tmk-v.ru:8080/img/${x.imgFolder}/${x.imgLink[0]}`}
+                src={`http://tmk-v.ru:8080/img/${x.imgFolder}/${x.imgLink[0]}`}
                 alt={x.altImg}
               />
             </div>

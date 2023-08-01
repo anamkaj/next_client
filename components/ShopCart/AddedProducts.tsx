@@ -34,7 +34,7 @@ export default function AddedProducts({ data }: { data: addCartStore[] }) {
               <div className=' flex flex-col items-center'>
                 <img
                   className=' w-[100px]'
-                  src={`https://tmk-v.ru:8080/img/${x.imgFolder}/${x.img}`}
+                  src={`http://tmk-v.ru:8080/img/${x.imgFolder}/${x.img}`}
                   alt=''
                 />
                 <p className=' text-center font-thin'>{x.title}</p>

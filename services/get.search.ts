@@ -6,7 +6,7 @@ export const SearchServices = {
   async productSearch(params: string | undefined) {
     try {
       const { data } = await axios.get<IProduct[]>(
-        `https://tmk-v.ru:8080/api/searchProduct`,
+        `http://tmk-v.ru:8080/api/searchProduct`,
         {
           params: {
             input: params,
@@ -22,7 +22,7 @@ export const SearchServices = {
   async categorySearch(params: string | undefined) {
     try {
       const { data } = await axios.get<ICategory[]>(
-        `https://tmk-v.ru:8080/api/searchCategory`,
+        `http://tmk-v.ru:8080/api/searchCategory`,
         {
           params: {
             input: params,

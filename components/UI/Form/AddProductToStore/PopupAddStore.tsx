@@ -30,7 +30,7 @@ export const Popup = ({
       <div className=' flex flex-col items-center justify-center'>
         <img
           className=' w-[15vh]'
-          src={`https://tmk-v.ru:8080/img/${product[0].imgFolder}/${product[0].imgLink[0]}`}
+          src={`http://tmk-v.ru:8080/img/${product[0].imgFolder}/${product[0].imgLink[0]}`}
           alt={product[0].altImg}
         />
 

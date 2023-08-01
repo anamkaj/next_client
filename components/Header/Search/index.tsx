@@ -44,7 +44,7 @@ export default function Search() {
             value={input || ''}
             onClick={() => openSearch()}
             onChange={(e) => setInput(e.target.value)}
-            className=' bg-white rounded-lg border-2 border-slate-50 hover:border-slate-300 py-2 px-2 leading-tight focus:outline-none font-thin w-full text-lg z-20 '
+            className=' bg-white rounded-lg border-2 border-slate-300 hover:border-slate-300 py-2 px-2 leading-tight focus:outline-none font-thin w-full text-lg z-20 '
             type='text'
             maxLength={30}
             minLength={5}

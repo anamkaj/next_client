@@ -3,7 +3,7 @@
 export const CategoryServices = {
   async getAllCategory(id: string) {
     const data = await fetch(
-      `https://tmk-v.ru:8080/api/category/all-category?id=${id}`,
+      `http://tmk-v.ru:8080/api/category/all-category?id=${id}`,
     )
     console.log(data)
 
@@ -11,7 +11,7 @@ export const CategoryServices = {
   },
 
   async getMainCategory() {
-    const data = await fetch('https://tmk-v.ru:8080/api/category/null-category')
+    const data = await fetch('http://tmk-v.ru:8080/api/category/null-category')
     return data.json()
   },
 }
