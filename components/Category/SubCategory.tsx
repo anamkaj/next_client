@@ -11,18 +11,20 @@ type PropsSubCategory = {
 export default function SubCategory({ category, id }: PropsSubCategory) {
   const subCategory = category?.filter((y) => y?.parentCategoryId == id)
   return (
-    <div className=' mt-5 grid grid-cols-5 gap-1 '>
-      {subCategory?.map((x, i) => {
+    <div className=' mt-5 grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-1 '>
+      {subCategory?.map((x) => {
         return (
-          <div className=' border border-t-slate-50 rounded-sm hover:shadow-sm hover:border-slate-300'>
+          <div
+            key={x.id}
+            className=' border border-t-slate-50 rounded-sm hover:shadow-sm hover:border-slate-300 p-4'
+          >
             <Link
               href={{
                 pathname: `/category/${x.slug}/${x.id}`,
                 query: { filter: 'popularity_desc' },
               }}
-              className=' inline-block text-center rounded px-6 pt-2.5 pb-2 text-sm  leading-normal text-neutral-800 '
             >
-              <div className=' flex items-center justify-between gap-2'>
+              <div className=' flex flex-col items-center justify-center gap-2'>
                 <Image
                   className='mt-4'
                   src={`https://tmk-v.ru:8080/img/${x.folderImg}/${x.img}`}
@@ -30,7 +32,7 @@ export default function SubCategory({ category, id }: PropsSubCategory) {
                   width={80}
                   height={80}
                 />
-                <span className='  font-light'>{x?.name}</span>
+                <span className='font-light text-neutral-800 text-center'>{x?.name}</span>
               </div>
             </Link>
           </div>
