@@ -23,7 +23,7 @@ export const FastOrderCart = ({
         <div className=' '>
           <img
             className=' w-[15vh]'
-            src={`http://tmk-v.ru:8080/img/${product[0].imgFolder}/${product[0].imgLink[0]}`}
+            src={`https://tmk-v.ru:8080/img/${product[0].imgFolder}/${product[0].imgLink[0]}`}
             alt={product[0].altImg}
           />
         </div>

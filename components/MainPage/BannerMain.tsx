@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 
 export default function BannerMain() {
-  const imgBanner = 'http://tmk-v.ru:8080/img/mainPage/4334.jpg'
+  const imgBanner = 'https://tmk-v.ru:8080/img/mainPage/4334.jpg'
   return (
     <>
       {/* <div className=' hidden xl:w-[310px] xl:block'></div> */}

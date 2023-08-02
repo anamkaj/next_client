@@ -30,7 +30,7 @@ export default function CategoryList({
                   <Image
                     height={40}
                     width={40}
-                    src={`http://tmk-v.ru:8080/img/${x.folderImg}/${x.img}`}
+                    src={`https://tmk-v.ru:8080/img/${x.folderImg}/${x.img}`}
                     alt={x.name}
                   />
                   <h2 className=' text-xs lg:text-sm whitespace-pre-wrap '>

@@ -19,7 +19,7 @@ export const ProductServices = {
       }
 
       const data = await fetch(
-        `http://tmk-v.ru:8080/api/all/?id=${id}&skip=${paramsReq.skip}&take=${paramsReq.take}`,
+        `https://tmk-v.ru:8080/api/all/?id=${id}&skip=${paramsReq.skip}&take=${paramsReq.take}`,
       )
       return data.json()
     } catch (error) {
@@ -46,7 +46,7 @@ export const ProductServices = {
       }
 
       const data = await fetch(
-        `http://tmk-v.ru:8080/api/all/${paramsReq.filter}/?id=${id}&skip=${paramsReq.skip}&take=${paramsReq.take}`,
+        `https://tmk-v.ru:8080/api/all/${paramsReq.filter}/?id=${id}&skip=${paramsReq.skip}&take=${paramsReq.take}`,
       )
       return data.json()
     } catch (error) {
@@ -56,7 +56,7 @@ export const ProductServices = {
 
   async popularProduct() {
     const { data } = await axios.get<IProduct[]>(
-      `http://tmk-v.ru:8080/api/popularProduct`,
+      `https://tmk-v.ru:8080/api/popularProduct`,
     )
 
     return data
@@ -64,7 +64,7 @@ export const ProductServices = {
 
   async getSingleProduct(id: number) {
     try {
-      const data = await fetch(`http://tmk-v.ru:8080/api/one?id=${id}`)
+      const data = await fetch(`https://tmk-v.ru:8080/api/one?id=${id}`)
       return data.json()
     } catch (error) {
       console.log(error)

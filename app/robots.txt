@@ -1,5 +1,5 @@
 User-Agent: *
-Sitemap: http://https://tmk-v.ru/sitemap.xml
+Sitemap: https://tmk-v.ru/sitemap.xml
 Host: https://tmk-v.ru
 Disallow: /css
 Disallow: /js

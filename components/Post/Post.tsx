@@ -11,7 +11,7 @@ export default function PostComponent({ data }: { data: Post[] }) {
           <div className=" mt-4 mb-4 w-[30%] ">
             <img
               className=" rounded-lg shadow-sm"
-              src={`http://tmk-v.ru:8080/img/post/${x.img}`}
+              src={`https://tmk-v.ru:8080/img/post/${x.img}`}
               alt=""
             />
           </div>

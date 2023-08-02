@@ -6,7 +6,7 @@ export const ReviewsServices = {
 
   async getReviews(id: number) {
     const { data } = await axios.get<Reviews[]>(
-      `http://tmk-v.ru:8080/api/reviews`,
+      `https://tmk-v.ru:8080/api/reviews`,
       {
         params: {
           id: id,
@@ -19,14 +19,14 @@ export const ReviewsServices = {
 
   async getReviewsCarousel() {
     const { data } = await axios.get<Reviews[]>(
-      `http://tmk-v.ru:8080/api/reviewsAll`
+      `https://tmk-v.ru:8080/api/reviewsAll`
     );
 
     return data;
   },
   async sendReviews(params: SendReviews) {
     const { data, status } = await axios.post(
-      `http://tmk-v.ru:8080/api/reviews`,
+      `https://tmk-v.ru:8080/api/reviews`,
       {
         data: params,
       }
@@ -37,7 +37,7 @@ export const ReviewsServices = {
 
   async incLike(params: Like) {
     const { data, status } = await axios.post(
-      `http://tmk-v.ru:8080/api/likeInc`,
+      `https://tmk-v.ru:8080/api/likeInc`,
       {
         data: params,
       }
@@ -48,7 +48,7 @@ export const ReviewsServices = {
 
   async incDislike(params: Like) {
     const { data, status } = await axios.post(
-      `http://tmk-v.ru:8080/api/likeDec`,
+      `https://tmk-v.ru:8080/api/likeDec`,
       {
         data: params,
       }

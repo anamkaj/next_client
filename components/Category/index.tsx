@@ -21,7 +21,7 @@ export default function Category({ category }: PropCategory) {
               <div className=" flex h-32 w-32 items-center ">
                 <Image
                   className="mt-4"
-                  src={`http://tmk-v.ru:8080/img/${e.folderImg}/${e.img}`}
+                  src={`https://tmk-v.ru:8080/img/${e.folderImg}/${e.img}`}
                   alt={""}
                   width={200}
                   height={200}

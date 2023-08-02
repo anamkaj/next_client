@@ -46,7 +46,7 @@ export default function BrandBanner() {
           return (
             <div key={index} className="p-4 w-[30vw] lg:w-[15vw] ">
               <img
-                src={`http://tmk-v.ru:8080/img/brand_banner/${x}`}
+                src={`https://tmk-v.ru:8080/img/brand_banner/${x}`}
                 alt="brandCCTV"
               />
             </div>

@@ -25,7 +25,7 @@ export default function SubCategory({ category, id }: PropsSubCategory) {
               <div className=' flex items-center justify-between gap-2'>
                 <Image
                   className='mt-4'
-                  src={`http://tmk-v.ru:8080/img/${x.folderImg}/${x.img}`}
+                  src={`https://tmk-v.ru:8080/img/${x.folderImg}/${x.img}`}
                   alt={''}
                   width={80}
                   height={80}
