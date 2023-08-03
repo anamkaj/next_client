@@ -1,7 +1,6 @@
 import React from 'react'
 import { ICategory } from '@/models/category'
 import ProductCart from '@/components/Product'
-import Category from '@/components/Category'
 import Description from '@/components/Category/Description'
 import Pagination from '@/components/Product/Pagination'
 import BreadCrumbs from '@/components/Product/BreadCrumbs'
@@ -9,7 +8,6 @@ import HeaderFilterProduct from '@/components/Product/HeaderFilterProduct'
 import { ProductServices } from '@/services/get.product'
 import { CategoryServices } from '@/services/get.category'
 import { IProduct } from '@/models/product'
-import CategoryDownLevel from '@/components/Category/CategoryDownLevel'
 import SubCategory from '@/components/Category/SubCategory'
 
 type PropCategoryUpLevel = {
@@ -32,8 +30,6 @@ export default async function CategoryUpLevel({
     pageNumber,
     pageFilter[0],
   )
-
-  console.log(pageFilter)
 
   return (
     <div className='container mx-auto py-10'>

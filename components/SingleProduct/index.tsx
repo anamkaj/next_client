@@ -44,10 +44,7 @@ export default function SingleProduct({ product }: ISingleProduct) {
   const titleModel = 'Товар добавлен в корзину'
   const titleFastOrderModel = 'Заявка на покупку товара'
   const titleSpecialistCall = 'Спецификация обьета'
-
-  useEffect(() => {
-    countViewIncrement(product[0].id)
-  }, [])
+  const countInc = countViewIncrement(product[0].id)
 
   return (
     <div className='container mx-auto p-4 mt-1 lg:mt-5'>

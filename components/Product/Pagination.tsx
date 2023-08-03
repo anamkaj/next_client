@@ -32,7 +32,7 @@ export default function Pagination({ product }: { product: IProduct[] }) {
   }, [page])
 
   return (
-    <nav className='mt-4'>
+    <nav className='mt-8'>
       <ul className='list-style-none flex space-x-5'>
         <li>
           <button

@@ -2,8 +2,8 @@ export interface IProduct {
   id: number;
   title: string;
   type: string;
-  paramsProduct: ParamsProduct[];
-  shortParam: ShortParam[];
+  paramsProduct: ParamsProduct;
+  shortParam: ShortParam;
   price: number;
   descriptionOne: string;
   categoryId: number;

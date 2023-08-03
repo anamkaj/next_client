@@ -17,7 +17,7 @@ export default function ProductCart({ product, slug }: IProductCart) {
   return (
     <div
       className="flex flex-col items-center cursor-pointer border +
-     border-gray-200 px-4 py-2 rounded-lg shadow-lg bg-white box-border h-[380px] "
+     border-gray-200 px-4 py-2 rounded-lg shadow-lg bg-white box-border hover:border-1 hover:border-slate-500"
     >
       <div className=" flex w-full justify-between">
         <ArticleBadges product={product} />
