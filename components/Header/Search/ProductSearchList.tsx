@@ -1,9 +1,9 @@
 import { IProduct } from '@/models/product'
 import Link from 'next/link'
 import React, { SetStateAction } from 'react'
-import urlSlug from 'url-slug'
 import Image from 'next/image'
 import { ICategory } from '@/models/category'
+import slug from 'slug'
 
 type PropProductSearchList = {
   product: IProduct[] | undefined
@@ -24,7 +24,7 @@ export default function ProductSearchList({
             key={x.id}
             onClick={() => closeSearch()}
             href={{
-              pathname: `/product/search/${urlSlug(x.title)}/${x.id}`,
+              pathname: `/product/search/${slug(x.title)}/${x.id}`,
             }}
           >
             <div className=' flex items-center gap-4'>

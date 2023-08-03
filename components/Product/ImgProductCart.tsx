@@ -1,19 +1,19 @@
 import React from 'react'
 import { IProduct } from '@/models/product'
 import Link from 'next/link'
-import urlSlug from 'url-slug'
 import Image from 'next/image'
+import slug from 'slug'
 
 interface imgProps {
   product: IProduct
-  slug: string
+  url: string
 }
-export default function ImgProductCart({ product, slug }: imgProps) {
+export default function ImgProductCart({ product, url }: imgProps) {
   return (
     <>
       <Link
         href={{
-          pathname: `/product/${slug[0]}/${urlSlug(product.title)}/${
+          pathname: `/product/${url[0]}/${slug(product.title)}/${
             product.id
           }`,
         }}
