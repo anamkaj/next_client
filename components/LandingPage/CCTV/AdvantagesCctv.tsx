@@ -20,7 +20,7 @@ export default function AdvantagesCctv() {
             <Image
               height={600}
               width={600}
-              src={`http://localhost:4000/img/landing_page_imag/advantages/content__img.png`}
+              src={`https://tmk-v.ru:8080/img/landing_page_imag/advantages/content__img.png`}
               alt='Установка видеонаблюдения в Краснодаре'
               className=' mt-2'
             />
@@ -58,7 +58,7 @@ export default function AdvantagesCctv() {
             <Image
               height={300}
               width={300}
-              src={`http://localhost:4000/img/landing_page_imag/advantages/content__img_2.png`}
+              src={`https://tmk-v.ru:8080/img/landing_page_imag/advantages/content__img_2.png`}
               alt='Установка видеонаблюдения в Краснодаре'
               className=' mt-2'
             />
@@ -69,7 +69,7 @@ export default function AdvantagesCctv() {
             <Image
               height={300}
               width={300}
-              src={`http://localhost:4000/img/landing_page_imag/advantages/content__img_3.png`}
+              src={`https://tmk-v.ru:8080/img/landing_page_imag/advantages/content__img_3.png`}
               alt='Установка видеонаблюдения в Краснодаре'
               className=' mt-2'
             />

@@ -32,7 +32,7 @@ export default function OpenForm() {
             <Image
               height={300}
               width={300}
-              src={`http://localhost:4000/img/landing_page_imag/wrap__img.jpg`}
+              src={`https://tmk-v.ru:8080/img/landing_page_imag/wrap__img.jpg`}
               alt='Установка видеонаблюдения в Краснодаре'
               className=' rounded-full md:w-[200px]'
             />

@@ -29,7 +29,7 @@ export default function Work() {
                 <Image
                   height={200}
                   width={200}
-                  src={`http://localhost:4000/img/landing_page_imag/work/${x}`}
+                  src={`https://tmk-v.ru:8080/img/landing_page_imag/work/${x}`}
                   alt='Установка видеонаблюдения в Краснодаре'
                   onClick={(e) => changeModal(index, e)}
                   className=' rounded-lg shadow-lg'
@@ -47,7 +47,7 @@ export default function Work() {
                   <Image
                     height={400}
                     width={600}
-                    src={`http://localhost:4000/img/landing_page_imag/work/${
+                    src={`https://tmk-v.ru:8080/img/landing_page_imag/work/${
                       imgWork[ref.current]
                     }`}
                     className='w-[300px] md:w-[500px]'

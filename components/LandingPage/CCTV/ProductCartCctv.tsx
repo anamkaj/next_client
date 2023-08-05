@@ -23,7 +23,7 @@ export default function ProductCartCctv() {
                 <Image
                   height={200}
                   width={200}
-                  src={`http://localhost:4000/img/landing_page_imag/${namaCart[cart]}`}
+                  src={`https://tmk-v.ru:8080/img/landing_page_imag/${namaCart[cart]}`}
                   alt='Установка видеонаблюдения в Краснодаре'
                 />
               </div>

@@ -13,7 +13,7 @@ export default function MainDisplay() {
         <Image
           height={768}
           width={1366}
-          src={'http://localhost:4000/img/landing_page_imag/quad-software.png'}
+          src={'https://tmk-v.ru:8080/img/landing_page_imag/quad-software.png'}
           className='w-[500px] xl:w-full'
           alt='Установка видеонаблюдения в Краснодаре'
         />
