@@ -11,12 +11,9 @@ import { Person } from '@/models/form'
 import { useAtom } from 'jotai'
 import { requestConsultationBtn } from '@/store/Jotai/modal'
 
-type PropForm = {
-  setSpecialist?: React.Dispatch<React.SetStateAction<boolean>>
-}
 // Форма запроса выезда специалиста , кнопка в хедере "Заказать обратный звонок"
 
-export const FormHeaderBtn = ({ setSpecialist }: PropForm) => {
+export const FormHeaderBtn = () => {
   const {
     register,
     handleSubmit,

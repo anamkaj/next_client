@@ -22,7 +22,6 @@ export default function TablePropsProduct({
                   {product[0].shortParam[key]}
                 </span>
               </h3>
-              {/* <h3 className='font-light text-sm ml-2'>{Object.values(e)}</h3> */}
             </div>
           )
         })}

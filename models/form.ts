@@ -7,6 +7,11 @@ export type Person = {
   internetTrue?: boolean
 }
 
+export type OpenForm = {
+  name: string
+  phone: number
+}
+
 export interface IFormCartPage extends Person {
   price: number
   data: DataCart[]

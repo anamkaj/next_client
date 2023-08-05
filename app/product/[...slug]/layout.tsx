@@ -14,7 +14,6 @@ export async function generateMetadata({
   const product: IProduct[] = await ProductServices.getSingleProduct(
     Number(slug[2]),
   )
-  // console.log(slug)
   const desc =
     product[0].descriptionOne.length !== 0
       ? product[0].descriptionOne.slice(0, 170)

@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['tmk-v.ru'],
+    domains: ['tmk-v.ru',"localhost"],
   },
 }
 

@@ -63,7 +63,7 @@ export default function Header() {
             setActive={setRequestConsultation}
             titleModel={titlePopup2}
           >
-            <FormHeaderBtn setSpecialist={setRequestConsultation} />
+            <FormHeaderBtn />
           </Model>
         </div>
       </div>
