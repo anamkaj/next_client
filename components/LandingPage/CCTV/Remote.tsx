@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function Remote() {
   return (
-    <div className=' mt-20 '>
+    <div className=' mt-20 shadow-xs border border-slate-200 '>
       <div className='flex justify-center mt-20 flex-col items-center'>
         <h2 className=' text-2xl text-center  font-semibold uppercase tracking-tight'>
           Бесплатные опции

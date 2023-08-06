@@ -16,7 +16,7 @@ export default function ProductCartCctv() {
         {Object.keys(namaCart).map((cart, index) => {
           return (
             <div
-              className=' flex flex-col items-center justify-center '
+              className=' flex flex-col items-center '
               key={index}
             >
               <div className=' w-[150px] h-[150px]'>

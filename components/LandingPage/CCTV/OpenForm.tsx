@@ -19,9 +19,9 @@ export default function OpenForm() {
   const { sendGoal } = useGoalYandexMetrika({ isValid, reset })
 
   return (
-    <>
+    <div className=' bg-gradient-to-r from-slate-100 rounded-l-lg shadow-l-lg '>
       <div className='flex justify-center mt-20 flex-col items-center'>
-        <h2 className=' text-2xl text-center  font-semibold uppercase tracking-tight'>
+        <h2 className='mt-4 text-2xl text-center  font-semibold uppercase tracking-tight'>
           Получите профессиональную консультацию
         </h2>
         <hr className=' w-64 mt-4 bg-slate-200' />
@@ -34,15 +34,15 @@ export default function OpenForm() {
               width={300}
               src={`https://tmk-v.ru:8080/img/landing_page_imag/wrap__img.jpg`}
               alt='Установка видеонаблюдения в Краснодаре'
-              className=' rounded-full md:w-[200px]'
+              className=' rounded-full md:w-[200px] shadow-md'
             />
-            <div className=' mt-2 text-center font-thin '>
+            <div className=' mb-4 mt-2 text-center font-thin '>
               <span className='font-semibold'>ВЛАДИМИР</span> <br /> Инженер
               (техник) слаботочных систем <br /> 4 категории
             </div>
           </div>
         </div>
-        <div className=' col-span-2 mt-4 md:mt-0 '>
+        <div className=' col-span-2 mt-4 md:mt-0 p-4'>
           <p className='text-xl md:text-2xl font-thin whitespace-pre-wrap'>
             Вам перезвонит опытный специалист и ответит на все ваши вопросы,
             далее подберем решение для вашей задачи и составим смету!
@@ -57,7 +57,7 @@ export default function OpenForm() {
           <>
             <form
               onSubmit={handleSubmit(onSubmitOpenForm)}
-              className='grid grid-cols-1 md:grid-cols-3 mt-10 gap-2 '
+              className='grid grid-cols-1 lg:grid-cols-3 mt-10 gap-2 '
             >
               <div className=' flex flex-col gap-2'>
                 <NameInput register={register} errors={errors} />
@@ -84,6 +84,6 @@ export default function OpenForm() {
           </>
         </div>
       </div>
-    </>
+    </div>
   )
 }
