@@ -1,25 +1,29 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 
-type FilterChangeProp = {
-  pageFilter: string
-  pageNumber: string
-}
-
-export const useFilterChange = ({
-  pageFilter,
-  pageNumber,
-}: FilterChangeProp) => {
+export const useFilterChange = () => {
   const router = useRouter()
-  const input = useRef<string>(pageFilter)
+  const searchParams = useSearchParams()
+  const input = useRef<string>('')
+  const getFilterState = searchParams.get('filter') || ''
+
+  const url = searchParams.toString()
 
   const selectChange = (event: string) => {
     input.current = event
-    if (pageNumber === undefined) {
-      router.push(`?filter=${input.current}`)
-    } else {
-      router.push(`?filter=${input.current}&page=${pageNumber}`)
-    }
+    const changeUrl = url.split('&')
+    const regex = /filter/g
+
+    const filter = changeUrl.filter((x) => {
+      if (!x.match(regex)) {
+        return x
+      }
+    })
+
+    input.current = event
+    router.push(`?filter=${input.current}&${filter.join('&')}`, {
+      scroll: false,
+    })
   }
 
   // Пороверка стора на сохраненый фильтр
@@ -30,5 +34,5 @@ export const useFilterChange = ({
   //   }
   // }, []);
 
-  return { selectChange }
+  return { selectChange, getFilterState }
 }

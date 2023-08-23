@@ -29,7 +29,7 @@ export default function ProductSearchList({
           >
             <div className=' flex items-center gap-4'>
               <p className=' font-light text-xs'>Артикул {x.article}</p>
-              <span className=' text-sm'>{x.brend}</span>
+              <span className=' text-sm'>{x.brand}</span>
               <span className=' text-sm'>{x.price} ₽</span>
             </div>
             <div className=' flex items-center gap-2'>

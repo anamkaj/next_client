@@ -13,7 +13,7 @@ export default function TitleProductCart({ product, url }: TitleProps) {
     <>
       <Link
         href={{
-          pathname: `/product/${url[0]}/${slug(product.title)}/${product.id}`,
+          pathname: `/product/${url}/${slug(product.title)}/${product.id}`,
         }}
         className=' flex font-light text-black text-sm text-center mb-2 h-8'
       >

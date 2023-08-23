@@ -13,7 +13,7 @@ export default function ImgProductCart({ product, url }: imgProps) {
     <>
       <Link
         href={{
-          pathname: `/product/${url[0]}/${slug(product.title)}/${
+          pathname: `/product/${url}/${slug(product.title)}/${
             product.id
           }`,
         }}

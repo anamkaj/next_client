@@ -1,0 +1,24 @@
+.rc-slider-rail {
+  height: 10px;
+  background-color: rgba(172, 172, 172, 0.329);
+}
+
+.rc-slider-track {
+  height: 10px;
+  background-color: rgb(173, 152, 168);
+}
+.rc-slider-handle-1,
+.rc-slider-handle-2 {
+  position: absolute;
+  z-index: 1;
+  width: 20px;
+  height: 20px;
+  margin-top: -5px;
+  background-color: #fff;
+  border: solid 2px #96dbfa;
+  border-radius: 50%;
+  cursor: pointer;
+  cursor: grab;
+  opacity: 0.8;
+  touch-action: pan-x;
+}

@@ -22,7 +22,7 @@ export default function CategoryList({
                   onClick={() => closeSearch()}
                   href={{
                     pathname: `/category/${x.slug}/${x.id}`,
-                    query: { filter: 'popularity_desc' },
+                    
                   }}
                   key={x.id}
                   className=' flex flex-col p-2 w-1/3 text-center justify-center border items-center shadow-sm rounded-md  '

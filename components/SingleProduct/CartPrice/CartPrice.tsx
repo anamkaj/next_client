@@ -36,7 +36,7 @@ export default function CartPrice({
           <CartHeader product={product} />
           <div className=' flex gap-1 items-center justify-end'>
             <BsGear className=' h-3 w-3' />
-            <p className=' text-xs '>Производитель: {product[0].brend}</p>
+            <p className=' text-xs '>Производитель: {product[0].brand}</p>
           </div>
         </>
 

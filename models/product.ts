@@ -15,7 +15,7 @@ export interface IProduct {
   inStock: boolean;
   quantity: number;
   discount: number;
-  brend: string;
+  brand: string;
   subCategoryId: number;
   article: number;
   imgFolder: string;

@@ -21,7 +21,6 @@ export default function SubCategory({ category, id }: PropsSubCategory) {
             <Link
               href={{
                 pathname: `/category/${x.slug}/${x.id}`,
-                query: { filter: 'popularity_desc' },
               }}
             >
               <div className=' flex flex-col items-center justify-center gap-2'>
@@ -32,7 +31,9 @@ export default function SubCategory({ category, id }: PropsSubCategory) {
                   width={80}
                   height={80}
                 />
-                <span className='font-light text-neutral-800 text-center'>{x?.name}</span>
+                <span className='font-light text-neutral-800 text-center'>
+                  {x?.name}
+                </span>
               </div>
             </Link>
           </div>
