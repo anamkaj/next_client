@@ -47,6 +47,11 @@ export default async function CategoryUpLevel({
   )
   const brand: string[] = await ProductServices.getBrandFilter(categoryId)
 
+  const countSearchFilterProduct: number =
+    await ProductServices.getCountSearchFilterProduct(categoryId, searchParams)
+
+  console.log(countSearchFilterProduct)
+
   return (
     <div className='container mx-auto py-10'>
       <SubCategory category={category} id={Number(categoryId)} />
@@ -56,9 +61,19 @@ export default async function CategoryUpLevel({
         categoryId={categoryId}
         filterPrice={filterPrice}
       />
-      <HeaderFilterProduct pageFilter={pageFilter} />
-      <div className=' grid grid-cols-5 gap-2 mt-4'>
-        <FilterProduct filterPrice={filterPrice} brand={brand} />
+      <HeaderFilterProduct
+        filterPrice={filterPrice}
+        brand={brand}
+        countSearchFilterProduct={countSearchFilterProduct}
+      />
+      <div className=' grid grid-cols-4 lg:grid-cols-5 gap-2 mt-4 p-2 '>
+        <div className='col-span-1 hidden lg:block'>
+          <FilterProduct
+            filterPrice={filterPrice}
+            brand={brand}
+            countSearchFilterProduct={countSearchFilterProduct}
+          />
+        </div>
         <div className='col-span-4 grid grid-cols-2 gap-1 lg:gap-2 md:grid-cols-3 xl:grid-cols-4 '>
           {product.map((cart) => {
             return (

@@ -57,14 +57,14 @@ export default function BrandFilter({ brand }: PropBrandFilter) {
   }
 
   return (
-    <div className=' mt-4'>
+    <div className=' mt-6'>
       <h3 className='font-bold'>Бренд</h3>
       <div className=' mt-2'>
         <ul>
           {uniqBrandArray.map((x, index) => {
             return (
-              <li key={index}>
-                <label>
+              <li key={index} className=' '>
+                <label className=' font-normal hover:font-semibold cursor-pointer uppercase text-base'>
                   <input
                     name={x}
                     checked={checkedState[index] || false}

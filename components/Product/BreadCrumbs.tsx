@@ -18,7 +18,7 @@ export default function BreadCrumbs({
   const { length } = filterPrice
 
   return (
-    <div className='w-full mt-4'>
+    <div className='w-full mt-4 p-2'>
       {crumbs.map((x) => {
         return (
           <div
@@ -26,7 +26,7 @@ export default function BreadCrumbs({
             className=' flex items-center md:space-x-4 space-x-0 flex-wrap md:flex-nowrap justify-between'
           >
             <h2 className=' text-lg'>{x.name}</h2>
-            <span className=' font-thin text-slate-700 text-lg'>
+            <span className=' font-thin text-slate-700 text-sm md:text-lg'>
               {' '}
               Товаров в каталоге: <span className='font-bold'>
                 {length}{' '}

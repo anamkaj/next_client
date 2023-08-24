@@ -78,7 +78,7 @@ export const ProductServices = {
 
     return data
   },
-
+  // Получение одного товара
   async getSingleProduct(id: number) {
     try {
       const data = await fetch(`https://tmk-v.ru:8080/api/one?id=${id}`)
@@ -87,7 +87,7 @@ export const ProductServices = {
       console.log(error)
     }
   },
-
+  // Получение колличества всех товаро в группу + минмальная и максимальная цена товаров в группу  без фильтрации
   async getAllProductNotFilter(id: string) {
     try {
       const data = await fetch(`http://localhost:4000/api/notFilter?id=${id}`)
@@ -96,10 +96,31 @@ export const ProductServices = {
       console.log(error)
     }
   },
-
+  // Получение названй брендов в группу
   async getBrandFilter(id: string) {
     try {
       const data = await fetch(`http://localhost:4000/api/brandFilter?id=${id}`)
+      return data.json()
+    } catch (error) {
+      console.log(error)
+    }
+  },
+
+  async getCountSearchFilterProduct(
+    id: string,
+    searchParams: { [key: string]: string },
+  ) {
+    try {
+      const data = await fetch(
+        `http://localhost:4000/api/all/countFilterProduct?` +
+          new URLSearchParams({
+            id: id,
+            priceMin: searchParams.price_min || '1',
+            priceMax: searchParams.price_max || '10000000',
+            brand: searchParams.brand || '',
+          }),
+      )
+
       return data.json()
     } catch (error) {
       console.log(error)

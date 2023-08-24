@@ -1,7 +1,6 @@
 import { useAppDispatch, useAppSelector } from '@/store/Redux/storeHook'
 import Link from 'next/link'
-import React, { useEffect } from 'react'
-
+import React from 'react'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 
 type MobileShopCartProp = {
@@ -9,7 +8,7 @@ type MobileShopCartProp = {
 }
 
 export const MobileShopCart = ({ setSetActive }: MobileShopCartProp) => {
-  const countCart = useAppSelector((state) => state.cartReducer.cart)
+  const countCart = useAppSelector((state) => state.cartReducer.cart).length
   const dispatch = useAppDispatch()
 
   //Добавление товаров из localstorege
@@ -24,7 +23,7 @@ export const MobileShopCart = ({ setSetActive }: MobileShopCartProp) => {
           <div className='relative py-2'>
             <div className=' bottom-7 absolute left-4'>
               <p className='flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white'>
-                {countCart?.length}
+                {countCart}
               </p>
             </div>
             <AiOutlineShoppingCart className=' w-8 h-8' />

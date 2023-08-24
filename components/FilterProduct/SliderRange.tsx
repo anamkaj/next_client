@@ -80,25 +80,24 @@ export default function SliderRange({ filterPrice }: ISliderRangeProps) {
 
   return (
     <>
-      <div className=' flex flex-col gap-2 mt-a4'>
+      <div className=' flex flex-col gap-2 mt-4'>
         <span className=' font-normal text-sm'>Цена, ₽</span>
 
-        <div className='grid grid-cols-7 items-center'>
-          <span className='col-span-1 font-thin text-center'>от</span>
+        <div className='flex gap-2'>
           <input
             type='number'
-            className=' h-8 border border-slate-200 col-span-2 rounded-lg font-thin placeholder: pl-2 focus:outline-purple-500'
+            className=' h-8 border border-slate-200  font-thin placeholder: pl-2 focus:outline-purple-500 w-[100px] md:w-[70px]'
             onChange={(e) => changeValueMin(e.target.value)}
             value={slideValue[0]}
             onFocus={() => setFocusInput(true)}
             onBlur={() => setFocusInput(false)}
           />
-          <span className='col-span-1 font-extrabold text-center'>–</span>
-          <span className='col-span-1 font-thin text-center'>до</span>
+          <span className=' font-extrabold text-center'>–</span>
+
           <input
             type='number'
             value={slideValue[1]}
-            className='h-8 border border-slate-200 col-span-2 rounded-lg font-thin placeholder: pl-2 focus:outline-purple-500'
+            className='h-8 border border-slate-200  font-thin placeholder: pl-2 focus:outline-purple-500 w-[100px] md:w-[70px]'
             onChange={(e) => changeValueMax(e.target.value)}
             onFocus={() => setFocusInput(true)}
             onBlur={() => setFocusInput(false)}
