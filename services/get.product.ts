@@ -17,7 +17,7 @@ export const ProductServices = {
       }
 
       const data = await fetch(
-        'http://localhost:4000/api/all/?' +
+        'https://tmk-v.ru:8080/api/all/?' +
           new URLSearchParams({
             id: id,
             skip: checkPage(page).toString(),
@@ -52,7 +52,7 @@ export const ProductServices = {
       console.log(searchParams)
 
       const data = await fetch(
-        `http://localhost:4000/api/all/${
+        `https://tmk-v.ru:8080/api/all/${
           searchParams.filter || 'popularity_desc'
         }?` +
           new URLSearchParams({
@@ -90,7 +90,7 @@ export const ProductServices = {
   // Получение колличества всех товаро в группу + минмальная и максимальная цена товаров в группу  без фильтрации
   async getAllProductNotFilter(id: string) {
     try {
-      const data = await fetch(`http://localhost:4000/api/notFilter?id=${id}`)
+      const data = await fetch(`https://tmk-v.ru:8080/api/notFilter?id=${id}`)
       return data.json()
     } catch (error) {
       console.log(error)
@@ -99,7 +99,7 @@ export const ProductServices = {
   // Получение названй брендов в группу
   async getBrandFilter(id: string) {
     try {
-      const data = await fetch(`http://localhost:4000/api/brandFilter?id=${id}`)
+      const data = await fetch(`https://tmk-v.ru:8080/api/brandFilter?id=${id}`)
       return data.json()
     } catch (error) {
       console.log(error)
@@ -112,7 +112,7 @@ export const ProductServices = {
   ) {
     try {
       const data = await fetch(
-        `http://localhost:4000/api/all/countFilterProduct?` +
+        `https://tmk-v.ru:8080/api/all/countFilterProduct?` +
           new URLSearchParams({
             id: id,
             priceMin: searchParams.price_min || '1',
