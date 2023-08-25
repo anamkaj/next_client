@@ -30,7 +30,6 @@ export default async function CategoryUpLevel({
   const categorySlug = slug[0]
   // блок фильтрации
   const pageNumber = searchParams.page || '1'
-  const pageFilter = searchParams.filter
 
   const filterPrice: RespProp = await ProductServices.getAllProductNotFilter(
     categoryId,
@@ -67,7 +66,7 @@ export default async function CategoryUpLevel({
         countSearchFilterProduct={countSearchFilterProduct}
       />
       <div className=' grid grid-cols-4 lg:grid-cols-5 gap-2 mt-4 p-2 '>
-        <div className='col-span-1 hidden lg:block'>
+        <div className='col-span-1 hidden lg:block relative h-max-[100px]'>
           <FilterProduct
             filterPrice={filterPrice}
             brand={brand}

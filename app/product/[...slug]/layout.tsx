@@ -11,9 +11,12 @@ export async function generateMetadata({
   params,
 }: PropGenerateMetadata): Promise<Metadata> {
   const { slug } = params
+  console.log(slug)
   const product: IProduct[] = await ProductServices.getSingleProduct(
     Number(slug[2]),
   )
+  console.log(product[0].brand)
+
   const desc =
     product[0].descriptionOne.length !== 0
       ? product[0].descriptionOne.slice(0, 170)

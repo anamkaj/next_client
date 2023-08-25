@@ -26,7 +26,6 @@ export default function ReviewsCarousel() {
       prevButtonText: <AiOutlineDoubleLeft />,
     },
     wrapAround: true,
-    // className: 'sliderStyle',
     cellSpacing: cellSpacing,
     speed: 1000,
   };

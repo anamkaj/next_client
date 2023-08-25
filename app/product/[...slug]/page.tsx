@@ -9,6 +9,7 @@ export default async function SingleProductCart({
   params: { slug: string }
 }) {
   const { slug } = params
+
   const product: IProduct[] = await ProductServices.getSingleProduct(
     Number(slug[2]),
   )
