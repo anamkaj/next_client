@@ -9,7 +9,7 @@ export const ProductServices = {
     const pageNumber = (Number(page) - 1) * 25
     try {
       const data = await fetch(
-        `http://localhost:4000/api/all/sort?` +
+        `https://tmk-v.ru:8080/api/all/sort?` +
           new URLSearchParams({
             id: id,
             skip: pageNumber.toString(),
@@ -31,7 +31,7 @@ export const ProductServices = {
 
   async popularProduct() {
     try {
-      const data = await fetch(`http://localhost:4000/api/popularProduct`)
+      const data = await fetch(`https://tmk-v.ru:8080/api/popularProduct`)
 
       return data.json()
     } catch (error) {
@@ -42,7 +42,7 @@ export const ProductServices = {
   // Получение одного товара
   async getSingleProduct(id: number) {
     try {
-      const data = await fetch(`http://localhost:4000/api/one?id=${id}`)
+      const data = await fetch(`https://tmk-v.ru:8080/api/one?id=${id}`)
       return data.json()
     } catch (error) {
       console.log(error)
@@ -67,7 +67,7 @@ export const ProductServices = {
   ) {
     try {
       const data = await fetch(
-        `http://localhost:4000/api/filterParamsProduct?` +
+        `https://tmk-v.ru:8080/api/filterParamsProduct?` +
           new URLSearchParams({
             id: id,
             priceMin: searchParams.price_min || '1',
