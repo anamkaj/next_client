@@ -1,3 +1,4 @@
+'use server'
 import React from 'react'
 import { ICategory } from '@/models/category'
 import Category from '@/components/Category'

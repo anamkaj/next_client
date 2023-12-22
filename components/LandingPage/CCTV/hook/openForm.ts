@@ -1,4 +1,5 @@
-import { OpenForm } from '@/models/form'
+
+import { OpenFormProp } from '@/models/form'
 import { FormServices } from '@/services/post.form'
 import { useState } from 'react'
 import { SubmitHandler } from 'react-hook-form'
@@ -13,13 +14,13 @@ export const useOpenForm = () => {
     | { state: string; data?: undefined; status?: undefined }
   >()
 
-  const sendForm = (form: OpenForm) => {
+  const sendForm = (form: OpenFormProp) => {
     const status = FormServices.postFormFeedback(form).then((data) =>
       setResponse(data),
     )
   }
 
-  const onSubmitOpenForm: SubmitHandler<OpenForm> = (data: OpenForm) => {
+  const onSubmitOpenForm: SubmitHandler<OpenFormProp> = (data: OpenFormProp) => {
     if (data) {
       const form = {
         phone: Number(data.phone),

@@ -7,7 +7,7 @@ export type Person = {
   internetTrue?: boolean
 }
 
-export type OpenForm = {
+export type OpenFormProp = {
   name: string
   phone: number
 }

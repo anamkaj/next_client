@@ -17,7 +17,14 @@ export default function MainPage() {
           <ExtraBenefit />
         </>
         <>
-          <CarouselPopularProduct />
+          <div className=' mt-12 mb-6'>
+            <p className=' font-bold text-xl lg:text-2xl text-slate-600 uppercase'>
+              Товары месяца
+            </p>
+          </div>
+          <div className='mt-5'>
+            <CarouselPopularProduct />
+          </div>
         </>
         <>
           <BrandBanner />

@@ -13,6 +13,7 @@ import {
   requestInstallationBtn,
 } from '@/store/Jotai/modal'
 import Metrika from '@/provider/Yandex/Metrika'
+import { useChatraChat } from '../LandingPage/CCTV/hook/chat'
 
 export default function Header() {
   // Монтаж и Установка - кнопка
@@ -22,6 +23,7 @@ export default function Header() {
   const [requestConsultation, setRequestConsultation] = useAtom(
     requestConsultationBtn,
   )
+  // useChatraChat()
 
   const titlePopup = 'Монтаж и Установка'
   const titlePopup2 = 'Заказать обратный звонок'

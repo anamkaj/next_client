@@ -1,7 +1,8 @@
+'use server'
 import React from 'react'
 import Image from 'next/image'
 
-export default function Remote() {
+export default async function Remote() {
   return (
     <div className=' mt-20 shadow-xs border border-slate-200 '>
       <div className='flex justify-center mt-20 flex-col items-center'>

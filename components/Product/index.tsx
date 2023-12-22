@@ -1,64 +1,47 @@
-import React from 'react'
-import ArticleBadges from './Badges/ArticleBadges'
-import QuantityBadges from './Badges/QuantityBadges'
-import ImgProductCart from './ImgProductCart'
-import TitleProductCart from './TitleProductCart'
-import CountView from './CountView/CountView'
+'use server'
+import FilterComponent from '../FilterProduct'
+import Pagination from './Pagination'
+import { IProductCart } from './model/type.'
 import { IProduct } from '@/models/product'
-import { ButtonCart } from './ButtonCart'
-import ProviderProduct from '../../provider/Product/ProviderStor'
+import { ProductServices } from '@/services/get.product'
+import Cart from './ProductCart'
+import CarouselPopularProduct from '../MainPage/CarouselPopularProduct'
 
-interface IProductCart {
-  product: IProduct
-  slug: string
-}
-
-export default function ProductCart({ product, slug }: IProductCart) {
+export default async function CatalogProduct({
+  page,
+  categoryId,
+  searchParams,
+  slug,
+}: IProductCart) {
+  const product: IProduct[] = await ProductServices.getProductFilterHead(
+    categoryId,
+    page,
+    searchParams,
+  )
   return (
-    <div
-      className='flex flex-col items-center cursor-pointer border +
-     border-gray-200 px-4 py-2 rounded-lg shadow-lg bg-white box-border hover:border-1 hover:border-slate-500 h-[350px]'
-    >
-      <div className=' flex w-full justify-between'>
-        <ArticleBadges product={product} />
-        <QuantityBadges product={product} />
-      </div>
-
-      {/* Изображение товара  */}
-
-      <ImgProductCart product={product} url={slug} />
-
-      <TitleProductCart product={product} url={slug} />
-
-      {/* Счетчики отзывов  */}
-
-      <CountView key={product.id} product={product} />
-
-      {/* <SalesBadges data={data} /> */}
-
-      {/* Блок с ценами и кнопка */}
-      <div className='flex w-full items-center mt-auto mb-0 justify-between'>
-        <div className='flex space-x-8 md:space-x-6 lg:space-x-2 items-center flex-wrap'>
-          <div>
-            <p className=' font-bold text-sm md:text-xl'>
-              {Math.round(
-                product.price * (product.discount / 11),
-              ).toLocaleString('ru')}{' '}
-              ₽
-            </p>
-          </div>
-          <div className=' bg-gray-100 rounded-lg  py-0 p-2'>
-            <span className={'font-light text-sm  md:text-xl line-through'}>
-              {product.price.toLocaleString('ru')} ₽
-            </span>
-          </div>
+    <>
+      <div className=' grid grid-cols-4 lg:grid-cols-5 gap-2 p-2 items-start relative '>
+        <div className=' col-span-4 lg:col-span-1  '>
+          <FilterComponent
+            searchParams={searchParams}
+            categoryId={categoryId}
+          />
         </div>
-
-        {/*Добавить в корзину*/}
-        <ProviderProduct>
-          <ButtonCart key={product.id} product={product} />
-        </ProviderProduct>
+        <div className=' col-span-4 grid grid-cols-2 gap-1 lg:gap-2 md:grid-cols-3 xl:grid-cols-4'>
+          <Cart product={product} slug={slug} />
+        </div>
       </div>
-    </div>
+      <div className=' w-full justify-center flex items-center'>
+        <Pagination page={page} product={product} />
+      </div>
+      <div className='mt-10'>
+        <p className=' font-normal text-xl lg:text-2xl text-slate-600 uppercase'>
+          Лидеры продаж
+        </p>
+        <div className='mt-5'>
+          <CarouselPopularProduct />
+        </div>
+      </div>
+    </>
   )
 }

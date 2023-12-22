@@ -1,21 +1,16 @@
-'use client'
+'use server'
 import React from 'react'
-import { ICategory } from '@/models/category'
-import { RespProp } from '@/app/category/[...slug]/page'
+import { PropBreadCrumbs } from './model/type.'
+import { ProductServices } from '@/services/get.product'
+import { PriceProp } from '../FilterProduct/model/type'
 
-type PropBreadCrumbs = {
-  categoryId: string
-  category: ICategory[]
-  filterPrice: RespProp
-}
-
-export default function BreadCrumbs({
+export default async function BreadCrumbs({
   category,
   categoryId,
-  filterPrice,
 }: PropBreadCrumbs) {
+  const lengthProductCategory: PriceProp =
+    await ProductServices.getAllProductNotFilter(categoryId)
   const crumbs = category.filter((x) => x.id == Number(categoryId))
-  const { length } = filterPrice
 
   return (
     <div className='w-full mt-4 p-2'>
@@ -28,8 +23,9 @@ export default function BreadCrumbs({
             <h2 className=' text-lg'>{x.name}</h2>
             <span className=' font-thin text-slate-700 text-sm md:text-lg'>
               {' '}
-              Товаров в каталоге: <span className='font-bold'>
-                {length}{' '}
+              Товаров в каталоге:{' '}
+              <span className='font-bold'>
+                {lengthProductCategory.length}
               </span>{' '}
               шт.
             </span>

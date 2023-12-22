@@ -7,7 +7,6 @@ import TabReviews from './TabReviews'
 import { DescriptionMobile } from './Mobile/DescriptionMobile'
 import { MobileTableParams } from './Mobile/MobileTableParams'
 
-
 type TabSingleCartProps = {
   activeTab: number
   setActiveTab: React.Dispatch<React.SetStateAction<number>>

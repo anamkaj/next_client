@@ -1,9 +1,8 @@
-'use client'
+'use server'
 import Link from 'next/link'
 import React from 'react'
 
-export default function YandexMap() {
-
+export default async function YandexMap() {
   return (
     <>
       <div className=' flex justify-center mt-20 flex-col items-center'>

@@ -1,12 +1,13 @@
 'use client'
 import { NameInput } from '@/components/UI/Form/InputForm/Input/NameInput'
 import { PhoneInput } from '@/components/UI/Form/InputForm/Input/PhoneInput'
-import { useGoalYandexMetrika } from '@/helpers/hook/goal.metrika'
-import { OpenForm } from '@/models/form'
+import { useGoalYandexMetrika } from '@/hook/goal.metrika'
+
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useOpenForm } from './hook/openForm'
 import Image from 'next/image'
+import { OpenFormProp } from '@/models/form'
 
 export default function OpenForm() {
   const {
@@ -14,7 +15,7 @@ export default function OpenForm() {
     handleSubmit,
     reset,
     formState: { errors, isValid },
-  } = useForm<OpenForm>()
+  } = useForm<OpenFormProp>()
   const { onSubmitOpenForm, response } = useOpenForm()
   const { sendGoal } = useGoalYandexMetrika({ isValid, reset })
 

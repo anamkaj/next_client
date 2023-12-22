@@ -1,26 +1,31 @@
-import { ICategory } from "@/models/category";
-import React from "react";
-import ReactMarkdown from "react-markdown";
+'use server'
+import { ICategory } from '@/models/category'
+import React from 'react'
+import ReactMarkdown from 'react-markdown'
 
-export default function Description({
+export default async function Description({
   category,
-  slug,
+  categoryId,
 }: {
-  category: ICategory[];
-  slug: string;
+  category: ICategory[]
+  categoryId: string
 }) {
   return (
-    <div className=" mt-5 mb-8 p-2">
-      <h2 className=" font-normal text-xs lg:text-sm">
+    <div className=' mt-5 mb-8 p-2'>
+      <h2 className=' font-normal text-xs lg:text-sm'>
         {category?.map((e) => {
-          if (e.id == Number(slug))
+          if (e.id == Number(categoryId))
             return (
               <div key={e.id}>
-                <ReactMarkdown>{e.description}</ReactMarkdown>
+                {e.description !== null ? (
+                  <ReactMarkdown>{e.description}</ReactMarkdown>
+                ) : (
+                  ''
+                )}
               </div>
-            );
+            )
         })}
       </h2>
     </div>
-  );
+  )
 }

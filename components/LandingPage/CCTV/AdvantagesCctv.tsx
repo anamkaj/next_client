@@ -1,7 +1,8 @@
+"use server"
 import React from 'react'
 import Image from 'next/image'
 
-export default function AdvantagesCctv() {
+export default async function AdvantagesCctv() {
   return (
     <>
       <div className=' flex justify-center mt-20 flex-col items-center'>
@@ -111,7 +112,7 @@ export default function AdvantagesCctv() {
             <Image
               height={400}
               width={400}
-              src={`https://tmk-v.ru:8080img/landing_page_imag/advantages/content__img_4.png`}
+              src={`https://tmk-v.ru:8080/img/landing_page_imag/advantages/content__img_4.png`}
               alt='Установка видеонаблюдения в Краснодаре'
               className=' mt-2'
             />

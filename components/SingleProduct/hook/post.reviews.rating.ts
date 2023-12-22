@@ -1,33 +1,32 @@
-
-import { useState, useEffect } from "react";
-import { Like } from "@/models/reviews";
-import { ReviewsServices } from "@/services/reviews/reviews";
-import useSWR from "swr";
+import { useState, useEffect } from 'react'
+import { Like } from '@/models/reviews'
+import { ReviewsServices } from '@/services/reviews/reviews'
+import useSWR from 'swr'
 
 // Отправка на сервер комментария и сброс формы
 
 export const usePostReviewsRating = (id: number) => {
-  const [like, setLike] = useState(false);
-  const [dislike, setDislike] = useState(false);
+  const [like, setLike] = useState(false)
+  const [dislike, setDislike] = useState(false)
 
-  const { mutate: incLike } = useSWR("incLike", (id: Like) =>
-    ReviewsServices.incLike(id)
-  );
-  const { mutate: decLike } = useSWR("decLike", (id: Like) =>
-    ReviewsServices.incDislike(id)
-  );
+  const { mutate: incLike } = useSWR('incLike', () =>
+    ReviewsServices.incLike({ commentId: id }),
+  )
+  const { mutate: decLike } = useSWR('decLike', () =>
+    ReviewsServices.incDislike({ commentId: id }),
+  )
 
   useEffect(() => {
     if (like === true) {
-      incLike();
+      incLike()
     }
-  }, [like]);
+  }, [like])
 
   useEffect(() => {
     if (dislike === true) {
-      decLike();
+      decLike()
     }
-  }, [dislike]);
+  }, [dislike])
 
-  return { incLike, setLike, like, dislike, setDislike };
-};
+  return { incLike, setLike, like, dislike, setDislike }
+}

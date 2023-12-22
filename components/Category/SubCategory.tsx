@@ -1,15 +1,16 @@
-import { ICategory } from '@/models/category'
+'use server'
 import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
+import { PropsSubCategory } from '../Product/model/type.'
 
-type PropsSubCategory = {
-  category: ICategory[]
-  id: number
-}
-
-export default function SubCategory({ category, id }: PropsSubCategory) {
-  const subCategory = category?.filter((y) => y?.parentCategoryId == id)
+export default async function SubCategory({
+  category,
+  categoryId,
+}: PropsSubCategory) {
+  const subCategory = category?.filter(
+    (y) => y?.parentCategoryId == Number(categoryId),
+  )
   return (
     <div className=' mt-5 grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-1 '>
       {subCategory?.map((x) => {

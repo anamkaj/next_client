@@ -12,7 +12,7 @@ export default function TableParamsProduct({
   return (
     <table className='min-w-full text-left text-sm font-light mt-4 '>
       <motion.tbody initial='hidden' animate='visible' variants={variants}>
-        {Object.keys(product[0].shortParam).map((key, index) => {
+        {product[0].FullParam.map((item, index) => {
           return (
             <motion.tr
               custom={index}
@@ -21,10 +21,10 @@ export default function TableParamsProduct({
               className=' hover:bg-gray-100 '
             >
               <th className=' text-sm font-light  border-b border-neutral-300 items-center whitespace-nowrap mobile:whitespace-normal'>
-                {key}
+                {item.key}
               </th>
               <td className=' text-sm font-light border-b border-neutral-300 mobile:whitespace-normal '>
-                {product[0].shortParam[key]}
+                {item.value}
               </td>
             </motion.tr>
           )

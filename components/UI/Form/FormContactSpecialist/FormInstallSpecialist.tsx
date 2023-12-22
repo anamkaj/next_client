@@ -8,7 +8,7 @@ import { PhoneInput } from '../InputForm/Input/PhoneInput'
 import { useFormHeaderBtn } from '../hook/form.btn.header.query.hook'
 import { AgreementForm } from '../AgreementForm'
 import { Person } from '@/models/form'
-import { useGoalYandexMetrika } from '@/helpers/hook/goal.metrika'
+import { useGoalYandexMetrika } from '@/hook/goal.metrika'
 import { useAtom } from 'jotai'
 import { requestInstallationBtn } from '@/store/Jotai/modal'
 

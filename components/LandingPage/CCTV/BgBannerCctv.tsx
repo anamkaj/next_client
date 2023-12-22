@@ -1,7 +1,8 @@
+'use server'
 import React from 'react'
 import Image from 'next/image'
 
-export default function BannerCctv() {
+export default async function BannerCctv() {
   const imgBanner = 'https://tmk-v.ru:8080/img/landing_page_imag/vecteezy.jpg'
   return (
     <>

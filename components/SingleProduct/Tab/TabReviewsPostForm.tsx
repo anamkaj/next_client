@@ -21,7 +21,7 @@ export default function TabReviewsPostForm({
   } = useForm<SendReviews>();
 
   const { id } = product[0];
-  const { onSubmit, error, data } = usePostReviewsToServer({ id, reset });
+  const { onSubmit,  data } = usePostReviewsToServer({ id, reset });
 
   return (
     <div className="flex flex-col  justify-center shadow-lg mt-5  mb-6 w-1/2">
@@ -58,17 +58,17 @@ export default function TabReviewsPostForm({
         </div>
       </form>
       <div className=" mt-2 mb-4 transition ease-in-out delay-150 ">
-        {data?.status == 200 && (
+        {/* {data?.status == 200 && (
           <p className=" font-light text-sm  text-center text-green-400">
             Форма успешно отправленна.{" "}
           </p>
-        )}
+        )} */}
 
-        {error && (
+        {/* {error && (
           <p className="  font-light text-sm  text-center text-red-500">
             Ошибка отправки на сервер , уже чиним!{" "}
           </p>
-        )}
+        )} */}
       </div>
     </div>
   );

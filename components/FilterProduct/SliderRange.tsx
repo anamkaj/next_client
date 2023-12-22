@@ -1,25 +1,39 @@
 'use client'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Slider from 'rc-slider'
 import 'rc-slider/assets/index.css'
-import './../FilterProduct/slider.css'
-import { useRouter, useSearchParams } from 'next/navigation'
-import { RespProp } from '.'
+import './css/slider.css'
+import { useSearchParams } from 'next/navigation'
+import { ISliderRangeProps } from './model/type'
+import { z } from 'zod'
+import debounce from 'lodash.debounce'
 
-interface ISliderRangeProps {
-  filterPrice: RespProp
-}
-
-export default function SliderRange({ filterPrice }: ISliderRangeProps) {
-  const router = useRouter()
+export default function SliderRange({
+  changeUrlParamFilter,
+  min,
+  max,
+  valuePriceFilter,
+}: ISliderRangeProps) {
   const searchParams = useSearchParams()
-  const { maxPrice, minPrice } = filterPrice
-  const [slideValue, setSlideValue] = useState<number[]>([minPrice, maxPrice])
-  const valuePriceFilter = useRef<number[]>([minPrice, maxPrice])
-  const [min] = useState<number>(minPrice)
-  const [max] = useState<number>(maxPrice)
-  const [focusInput, setFocusInput] = useState<boolean>()
-  const url = searchParams.toString()
+
+  const [slideValue, setSlideValue] = useState<number[]>([min, max])
+  const [errorMessage, setErrorMessage] = useState<string>('')
+
+  const inputMin = z
+    .number()
+    .gte(min, { message: 'Цена слишком маленькая' })
+    .lte(max, {
+      message: 'Цена больше максимальной',
+    })
+
+  const inputMax = z
+    .number()
+    .gte(min, { message: 'Цена слишком маленькая' })
+    .lte(max, {
+      message: 'Цена больше максимальной',
+    })
+
+  // ______________________________________________________________________
 
   // получение из адресной страки параметров для подстановки после возврата из карточки
   const getMinPrice = searchParams.get('price_min') || min
@@ -28,49 +42,49 @@ export default function SliderRange({ filterPrice }: ISliderRangeProps) {
   // Функция изменения значений слайдера
   const changeSlide = (event: number | number[]) => {
     if (typeof event == 'object') {
-      valuePriceFilter.current = event
       setSlideValue(event)
+      timer()
     }
-    const _ = setTimeout(() => {
-      changeParamFilter()
-    }, 1000)
-  }
-  //Функции изменения стоимости в адресной строке через input
-  const changeValueMin = (event: string) => {
-    valuePriceFilter.current[0] = Number(event)
-    setSlideValue((prev) => [(prev[0] = Number(event)), prev[1]])
-  }
-  const changeValueMax = (event: string) => {
-    valuePriceFilter.current[1] = Number(event)
-    setSlideValue((prev) => [prev[0], (prev[1] = Number(event))])
-  }
-  //Функция добавления новых параметров в адресную строку
-  const changeParamFilter = () => {
-    const changeUrl = url.split('&')
-    const regex = /price_(max|min)/g
-    const filter = changeUrl.filter((x) => {
-      if (!x.match(regex)) {
-        return x
-      }
-    })
-    router.push(
-      `?${filter.join('&')}&price_min=${
-        valuePriceFilter.current[0]
-      }&price_max=${valuePriceFilter.current[1]}`,
-      {
-        scroll: false,
-      },
-    )
   }
 
-  // если значения input не изменены , тогда запрос не отправляется
-  useEffect(() => {
-    if (focusInput === false) {
-      if (min !== slideValue[0] || max !== slideValue[1]) {
-        changeParamFilter()
-      }
+  // ______________________________________________________________________
+  //Функции изменения стоимости в адресной строке через input
+  const changeValueMin = (event: string) => {
+    const price = Number(event)
+    setSlideValue((prev) => [(prev[0] = price), prev[1]])
+    const checkError = inputMin.safeParse(price)
+    if (checkError.success) {
+      setErrorMessage('')
+      timer()
+    } else {
+      checkError.error.errors.forEach(({ message }) => setErrorMessage(message))
     }
-  }, [focusInput])
+  }
+
+  const changeValueMax = (event: string) => {
+    const price = Number(event)
+    setSlideValue((prev) => [prev[0], (prev[1] = price)])
+    const checkError = inputMax.safeParse(price)
+    if (checkError.success) {
+      setErrorMessage('')
+      timer()
+    } else {
+      checkError.error.errors.forEach(({ message }) => setErrorMessage(message))
+    }
+  }
+  const changeParamUrlFilter = () => {
+    if (slideValue[0] < slideValue[1]) {
+      valuePriceFilter.current = slideValue
+      changeUrlParamFilter()
+    } else {
+      const string = 'Минимальная цена , больше максимальной'
+      setErrorMessage(string)
+    }
+  }
+
+  const timer = debounce(() => changeParamUrlFilter(), 500)
+
+  // ______________________________________________________________________
 
   // изменения слайдера если есть значения в параметрах url
   useEffect(() => {
@@ -86,33 +100,35 @@ export default function SliderRange({ filterPrice }: ISliderRangeProps) {
         <div className='flex gap-2'>
           <input
             type='number'
-            className=' h-8 border border-slate-200  font-thin placeholder: pl-2 focus:outline-purple-500 w-[100px] md:w-[70px]'
+            className=' h-8 border border-slate-200  font-thin placeholder: pl-2 focus:outline-purple-500 w-[100px] md:w-[70px] placeholder:text-sm placeholder:text-gray-900'
             onChange={(e) => changeValueMin(e.target.value)}
-            value={slideValue[0]}
-            onFocus={() => setFocusInput(true)}
-            onBlur={() => setFocusInput(false)}
+            value={slideValue[0] == 0 ? '' : slideValue[0]}
           />
           <span className=' font-extrabold text-center'>–</span>
 
           <input
             type='number'
-            value={slideValue[1]}
-            className='h-8 border border-slate-200  font-thin placeholder: pl-2 focus:outline-purple-500 w-[100px] md:w-[70px]'
+            className='h-8 border border-slate-200  font-thin placeholder: pl-2 focus:outline-purple-500 w-[100px] md:w-[70px] placeholder:text-sm placeholder:text-gray-900'
             onChange={(e) => changeValueMax(e.target.value)}
-            onFocus={() => setFocusInput(true)}
-            onBlur={() => setFocusInput(false)}
+            value={slideValue[1] == 0 ? '' : slideValue[1]}
           />
         </div>
       </div>
       <div className='mt-4'>
         <Slider
+          value={slideValue}
           range
-          value={valuePriceFilter.current}
           min={min}
           max={max}
           allowCross={false}
           onChange={(e) => changeSlide(e)}
         />
+      </div>
+
+      <div>
+        {errorMessage && (
+          <p className='mt-2 font-thin text-xs'>Ошибка: {errorMessage}</p>
+        )}
       </div>
     </>
   )

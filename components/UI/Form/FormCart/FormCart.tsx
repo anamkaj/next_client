@@ -8,7 +8,7 @@ import { EmailInput } from '../InputForm/Input/EmailInput'
 import { AgreementForm } from '../AgreementForm'
 import { Person } from '@/models/form'
 import { useEffect } from 'react'
-import { useGoalYandexMetrika } from '@/helpers/hook/goal.metrika'
+import { useGoalYandexMetrika } from '@/hook/goal.metrika'
 
 export const FormCart = () => {
   const {

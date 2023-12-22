@@ -26,7 +26,7 @@ export const MobileTableParams = ({ product }: MobileParamProduct) => {
         </button>
       </div>
       {paramsProduct && (
-        <div className='fixed bg-white top-0 left-0 h-[100%] w-[100%] overflow-scroll p-4 '>
+        <div className='fixed bg-white top-0 left-0 h-[100%] w-[100%] overflow-scroll p-4 overscroll-contain '>
           <div className='flex justify-between items-center mt-2 mb-2 w-full'>
             <BsArrowLeftCircle
               className=' w-5 h-5'

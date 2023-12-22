@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import CategoryDownLevel from './CategoryDownLevel'
@@ -11,7 +11,7 @@ interface PropCategory {
 export default function Category({ category }: PropCategory) {
   return (
     <div className=' grid grid-cols-2 gap-2 lg:grid-cols-4 p-2 md:grid-cols-3  '>
-      {category?.map((e) => {
+      {category.map((e) => {
         if (e.parentCategoryId == null)
           return (
             <div

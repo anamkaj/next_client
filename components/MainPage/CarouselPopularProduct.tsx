@@ -1,19 +1,16 @@
-'use client'
+'use server'
 import React from 'react'
-import { usePopularProduct } from './hook/get.popular.product'
+
 import CarouselProduct from '../UI/Carousel/ProductCarousel/Carousel'
+import { ProductServices } from '@/services/get.product'
+import { IProduct } from '@/models/product'
 
-export default function CarouselPopularProduct() {
-  const { data, isLoading } = usePopularProduct()
+export default async function CarouselPopularProduct() {
+  const getPopularProduct: IProduct[] = await ProductServices.popularProduct()
+
   return (
-    <div className='mt-12'>
-      <div className=' mt-4 mb-6'>
-        <p className=' font-bold text-xl lg:text-2xl text-slate-600 uppercase'>
-          Товары месяца
-        </p>
-      </div>
-
-      <CarouselProduct product={data} />
-    </div>
+    <>
+      <CarouselProduct product={getPopularProduct} />
+    </>
   )
 }

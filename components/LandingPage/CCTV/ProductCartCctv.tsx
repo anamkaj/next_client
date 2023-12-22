@@ -1,8 +1,9 @@
+'use server'
 import React from 'react'
 import Image from 'next/image'
 import { namaCart } from './helper/info'
 
-export default function ProductCartCctv() {
+export default async function ProductCartCctv() {
   return (
     <>
       <div className=' flex justify-center mt-[120px] md:mt-20 flex-col items-center'>
@@ -15,10 +16,7 @@ export default function ProductCartCctv() {
       <div className=' grid grid-cols-2 xl:grid-cols-4 mt-20 gap-y-8'>
         {Object.keys(namaCart).map((cart, index) => {
           return (
-            <div
-              className=' flex flex-col items-center '
-              key={index}
-            >
+            <div className=' flex flex-col items-center ' key={index}>
               <div className=' w-[150px] h-[150px]'>
                 <Image
                   height={200}

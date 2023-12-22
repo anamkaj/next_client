@@ -1,5 +1,5 @@
-import { Like, Reviews, SendReviews } from "@/models/reviews";
-import axios from "axios";
+import { Like, Reviews, SendReviews } from '@/models/reviews'
+import axios from 'axios'
 
 export const ReviewsServices = {
   // Запрос всех групп отзывов о товаре для Tab
@@ -11,28 +11,31 @@ export const ReviewsServices = {
         params: {
           id: id,
         },
-      }
-    );
+      },
+    )
 
-    return data;
+    return data
   },
 
   async getReviewsCarousel() {
     const { data } = await axios.get<Reviews[]>(
-      `https://tmk-v.ru:8080/api/reviewsAll`
-    );
+      `https://tmk-v.ru:8080/api/reviewsAll`,
+    )
 
-    return data;
+    return data
   },
   async sendReviews(params: SendReviews) {
-    const { data, status } = await axios.post(
-      `https://tmk-v.ru:8080/api/reviews`,
-      {
-        data: params,
-      }
-    );
-
-    return { data, status };
+    try {
+      const { data, status } = await axios.post(
+        `https://tmk-v.ru:8080/api/reviews`,
+        {
+          data: params,
+        },
+      )
+      return { data, status }
+    } catch (error) {
+      throw new Error('Сообщение об ошибке')
+    }
   },
 
   async incLike(params: Like) {
@@ -40,10 +43,10 @@ export const ReviewsServices = {
       `https://tmk-v.ru:8080/api/likeInc`,
       {
         data: params,
-      }
-    );
+      },
+    )
 
-    return { data, status };
+    return { data, status }
   },
 
   async incDislike(params: Like) {
@@ -51,9 +54,9 @@ export const ReviewsServices = {
       `https://tmk-v.ru:8080/api/likeDec`,
       {
         data: params,
-      }
-    );
+      },
+    )
 
-    return { data, status };
+    return { data, status }
   },
-};
+}

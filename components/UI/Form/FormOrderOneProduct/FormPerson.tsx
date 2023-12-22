@@ -7,7 +7,7 @@ import { EmailInput } from '../InputForm/Input/EmailInput'
 import { AgreementForm } from '../AgreementForm'
 import { IProduct } from '@/models/product'
 import { Person } from '@/models/form'
-import { useGoalYandexMetrika } from '@/helpers/hook/goal.metrika'
+import { useGoalYandexMetrika } from '@/hook/goal.metrika'
 
 type PropForm = {
   status?: boolean

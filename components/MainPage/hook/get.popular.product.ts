@@ -4,12 +4,12 @@ import { IProduct } from "../../../models/product";
 import { ReviewsServices } from "@/services/reviews/reviews";
 import { Reviews } from "@/models/reviews";
 
-export const usePopularProduct = () => {
-  const { data, isLoading } = useSWR<IProduct[]>("popularProduct", () =>
-    ProductServices.popularProduct()
-  );
-  return { data, isLoading };
-};
+// export const usePopularProduct = () => {
+//   const { data, isLoading } = useSWR<IProduct[]>("popularProduct", () =>
+//     ProductServices.popularProduct()
+//   );
+//   return { data, isLoading };
+// };
 
 export const useReviewsCarousel = () => {
   const { data, isLoading } = useSWR<Reviews[]>("reviewsProduct", () =>

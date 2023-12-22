@@ -1,31 +1,28 @@
-'use client'
+'use server'
 import React from 'react'
-import SliderRange from './SliderRange'
-import BrandFilter from './BrandFilter'
+import { ParamFilterProduct, PriceProp } from './model/type'
+import { ProductServices } from '@/services/get.product'
+import FilterProduct from './FilterProduct'
+import { FilterComponentProp } from '../Product/model/type.'
 
-export type RespProp = {
-  length: number
-  maxPrice: number
-  minPrice: number
-}
+export default async function FilterComponent({
+  categoryId,
+  searchParams,
+}: FilterComponentProp) {
+  const paramFilterProduct: ParamFilterProduct =
+    await ProductServices.getFilterParamsProduct(categoryId, searchParams)
 
-export interface IFilterProductProp {
-  filterPrice: RespProp
-  brand: string[]
-  countSearchFilterProduct: number
-}
+  const filterPrice: PriceProp = await ProductServices.getAllProductNotFilter(
+    categoryId,
+  )
 
-export default function FilterProduct({
-  filterPrice,
-  brand,
-}: IFilterProductProp) {
   return (
-    <div className=' p-4 border rounded-md '>
-      <h3 className='text-center  text-xl font-semibold lg:text-right'>
-        Фильтры
-      </h3>
-      <SliderRange filterPrice={filterPrice} />
-      <BrandFilter brand={brand} />
+    <div>
+      <FilterProduct
+        paramFilterProduct={paramFilterProduct}
+        filterPrice={filterPrice}
+        categoryId={categoryId}
+      />
     </div>
   )
 }
